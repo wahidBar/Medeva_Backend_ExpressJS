@@ -11,6 +11,9 @@ exports.getAll = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
+  // console.log("====================================");
+  // console.log("sampai disini");
+  // console.log("====================================");
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -22,6 +25,9 @@ exports.create = async (req, res) => {
     const newEmployee = await employeeRepository.create(data);
     res.status(201).json(newEmployee);
   } catch (err) {
+    console.log("====================================");
+    console.log(err);
+    console.log("====================================");
     res.status(500).json({ error: err });
   }
 };
