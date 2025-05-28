@@ -39,3 +39,11 @@ exports.login = async (req, res) => {
     res.status(500).json({ error: "Terjadi kesalahan saat login" });
   }
 };
+
+exports.logout = async (req, res) => {
+  try {
+    res.json({ message: "Logout berhasil" });
+  } catch (err) {
+    res.status(500).json({ error: "Logout gagal" });
+  }
+};
